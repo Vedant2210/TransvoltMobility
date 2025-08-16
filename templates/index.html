@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Visualization Dashboard</title>
+</head>
+<body>
+    <h1>Data Visualization Dashboard</h1>
+
+    {% for chart in charts %}
+        <div>
+            <img src="{{ url_for('static', filename=chart) }}" alt="{{ chart }}" width="800">
+        </div>
+        <hr>
+    {% endfor %}
+
+    <h2>Peaks Data</h2>
+    {{ peaks.to_html() | safe }}
+
+    <h2>Lows Data</h2>
+    {{ lows.to_html() | safe }}
+</body>
+</html>
